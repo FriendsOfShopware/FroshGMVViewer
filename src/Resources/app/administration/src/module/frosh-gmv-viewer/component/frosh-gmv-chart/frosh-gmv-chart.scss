@@ -1,0 +1,39 @@
+.frosh-gmv-chart {
+    margin-top: 24px;
+
+    &__container {
+        margin-bottom: 16px;
+    }
+
+    &__note {
+        margin-top: 16px;
+        font-size: 12px;
+        color: #52667a;
+        text-align: center;
+    }
+
+    .apexcharts-tooltip {
+        &-series {
+            padding: 5px;
+
+            &-group {
+                display: flex;
+                justify-content: space-between;
+                gap: 5px;
+            }
+        }
+
+        &-marker {
+            display: inline-block;
+            margin-right: 2px;
+        }
+
+        .frosh-gmv-chart-tooltip-group-summary {
+            margin-top: 4px;
+            border-top: 1px solid #ccc;
+            padding-top: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{% block frosh_gmv_chart %}
+    <div class="frosh-gmv-chart">
+        <sw-chart
+            class="frosh-gmv-chart__container"
+            :series="chartSeries"
+            :options="chartOptions"
+            type="bar"
+            position-identifier=""
+            :available-ranges="[]"
+        >
+        </sw-chart>
+
+        <div class="frosh-gmv-chart__note">
+            {{ $tc('frosh-gmv-viewer.chart.monthlyNote') || 'Note: This chart shows GMV values for each month of the year.' }}
+        </div>
+    </div>
+{% endblock %}

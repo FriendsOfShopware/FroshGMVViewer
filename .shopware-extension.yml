@@ -1,0 +1,50 @@
+store:
+    availabilities:
+        - German
+        - International
+    default_locale: en_GB
+    localizations:
+        - de_DE
+        - en_GB
+    categories:
+        - Administration
+    type: extension
+    icon: src/Resources/store/icon.png
+    automatic_bugfix_version_compatibility: true
+    tags:
+        de:
+            - GMV
+            - Umsatz
+            - Statistik
+        en:
+            - GMV
+            - Revenue
+            - Statistics
+    highlights:
+        de:
+            - GMV Übersicht
+            - Umsatzstatistiken
+            - Einfache Bedienung
+        en:
+            - GMV Overview
+            - Revenue Statistics
+            - Easy to Use
+    features:
+        de:
+            - GMV Übersicht
+            - Umsatzstatistiken
+            - Einfache Bedienung
+        en:
+            - GMV Overview
+            - Revenue Statistics
+            - Easy to Use
+
+build:
+    zip:
+        assets:
+            enable_es_build_for_admin: true
+            enable_es_build_for_storefront: false
+            npm_strict: true
+
+changelog:
+    enabled: true

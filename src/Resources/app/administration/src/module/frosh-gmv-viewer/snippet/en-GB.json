@@ -1,0 +1,34 @@
+{
+    "frosh-gmv-viewer": {
+        "general": {
+            "mainMenuItemGeneral": "GMV Viewer",
+            "descriptionTextModule": "Shows GMV (Gross Merchandise Value) statistics"
+        },
+        "overview": {
+            "cardTitle": "GMV Overview",
+            "thisMonth": "This Month",
+            "lastMonth": "Last Month",
+            "thisYear": "This Year",
+            "lastYear": "Last Year",
+            "includedCurrencies": "included currencies"
+        },
+        "chart": {
+            "monthlyNote": "Note: This chart shows GMV values for the last 12 months.",
+            "total": "Total",
+            "months": {
+                "january": "January",
+                "february": "February",
+                "march": "March",
+                "april": "April",
+                "may": "May",
+                "june": "June",
+                "july": "July",
+                "august": "August",
+                "september": "September",
+                "october": "October",
+                "november": "November",
+                "december": "December"
+            }
+        }
+    }
+}

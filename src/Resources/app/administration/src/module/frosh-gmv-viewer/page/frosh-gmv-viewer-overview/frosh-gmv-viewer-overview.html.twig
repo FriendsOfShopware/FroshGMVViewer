@@ -1,0 +1,81 @@
+{% block frosh_gmv_viewer_overview %}
+    <sw-page class="frosh-gmv-viewer-overview">
+        {% block frosh_gmv_viewer_overview_header %}
+            <template #smart-bar-header>
+                <h2>
+                    {{ $tc('frosh-gmv-viewer.general.mainMenuItemGeneral') }}
+                </h2>
+            </template>
+        {% endblock %}
+
+        {% block frosh_gmv_viewer_overview_content %}
+            <template #content>
+                <sw-card-view>
+                    {% block frosh_gmv_viewer_overview_content_card %}
+                        <sw-card :isLoading="isLoading" :title="$tc('frosh-gmv-viewer.overview.cardTitle')">
+                            <div class="frosh-gmv-viewer-overview__stats">
+                                <div class="frosh-gmv-viewer-overview__stat-group">
+                                    <div class="frosh-gmv-viewer-overview__stat-item">
+                                        <div class="frosh-gmv-viewer-overview__stat-label">{{ $tc('frosh-gmv-viewer.overview.thisMonth') }}:</div>
+                                        <div class="frosh-gmv-viewer-overview__stat-value">
+                                            {{ currencyFilter(gmvData.thisMonth.total, gmvData.defaultCurrencyIsoCode, 2) }}
+                                        </div>
+
+                                        <div class="frosh-gmv-viewer-overview__stat-detail" v-if="gmvData.thisMonth.detail && gmvData.thisMonth.detail.length > 0">
+                                            <strong>{{ $tc('frosh-gmv-viewer.overview.includedCurrencies') }}</strong>
+                                            <div v-for="entry in gmvData.thisMonth.detail" :key="entry.currency">
+                                                {{ currencyFilter(entry.amount, entry.currency, 2) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="frosh-gmv-viewer-overview__stat-item">
+                                        <div class="frosh-gmv-viewer-overview__stat-label">{{ $tc('frosh-gmv-viewer.overview.lastMonth') }}:</div>
+                                        <div class="frosh-gmv-viewer-overview__stat-value">
+                                            {{ currencyFilter(gmvData.lastMonth.total, gmvData.defaultCurrencyIsoCode, 2) }}
+                                        </div>
+
+                                        <div class="frosh-gmv-viewer-overview__stat-detail" v-if="gmvData.lastMonth.detail && gmvData.lastMonth.detail.length > 0">
+                                            <strong>{{ $tc('frosh-gmv-viewer.overview.includedCurrencies') }}</strong>
+                                            <div v-for="entry in gmvData.lastMonth.detail" :key="entry.currency">
+                                                {{ currencyFilter(entry.amount, entry.currency, 2) }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="frosh-gmv-viewer-overview__stat-item">
+                                        <div class="frosh-gmv-viewer-overview__stat-label">{{ $tc('frosh-gmv-viewer.overview.thisYear') }}:</div>
+                                        <div class="frosh-gmv-viewer-overview__stat-value">
+                                            {{ currencyFilter(gmvData.thisYear.total, gmvData.defaultCurrencyIsoCode, 2) }}
+                                        </div>
+
+                                        <div class="frosh-gmv-viewer-overview__stat-detail" v-if="gmvData.thisYear.detail && gmvData.thisYear.detail.length > 0">
+                                            <strong>{{ $tc('frosh-gmv-viewer.overview.includedCurrencies') }}</strong>
+                                            <div v-for="entry in gmvData.thisYear.detail" :key="entry.currency">
+                                                {{ currencyFilter(entry.amount, entry.currency, 2) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="frosh-gmv-viewer-overview__stat-item">
+                                        <div class="frosh-gmv-viewer-overview__stat-label">{{ $tc('frosh-gmv-viewer.overview.lastYear') }}:</div>
+                                        <div class="frosh-gmv-viewer-overview__stat-value">
+                                            {{ currencyFilter(gmvData.lastYear.total, gmvData.defaultCurrencyIsoCode, 2) }}
+                                        </div>
+
+                                        <div class="frosh-gmv-viewer-overview__stat-detail" v-if="gmvData.lastYear.detail && gmvData.lastYear.detail.length > 0">
+                                            <strong>{{ $tc('frosh-gmv-viewer.overview.includedCurrencies') }}</strong>
+                                            <div v-for="entry in gmvData.lastYear.detail" :key="entry.currency">
+                                                {{ currencyFilter(entry.amount, entry.currency, 2) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <frosh-gmv-chart :gmvData="rawGmvData"></frosh-gmv-chart>
+                        </sw-card>
+                    {% endblock %}
+                </sw-card-view>
+            </template>
+        {% endblock %}
+    </sw-page>
+{% endblock %}

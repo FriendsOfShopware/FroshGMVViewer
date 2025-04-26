@@ -1,0 +1,8 @@
+/vendor/
+/node_modules/
+/.idea/
+/.vscode/
+/.phpunit.result.cache
+/composer.lock
+/package-lock.json
+/.phpstan-result.cache

@@ -1,0 +1,45 @@
+{
+    "name": "frosh/gmv-viewer",
+    "version": "1.0.0",
+    "description": "GMV Viewer for Shopware 6",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Frosh\\GMVViewer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "FriendsOfShopware",
+            "homepage": "https://friendsofshopware.com"
+        }
+    ],
+    "extra": {
+        "shopware-plugin-class": "Frosh\\GMVViewer\\FroshGMVViewer",
+        "label": {
+            "de-DE": "GMV Viewer",
+            "en-GB": "GMV Viewer"
+        },
+        "description": {
+            "de-DE": "GMV (Gross Merchandise Value) Viewer für Shopware 6",
+            "en-GB": "GMV (Gross Merchandise Value) Viewer for Shopware 6"
+        },
+        "manufacturerLink": {
+            "de-DE": "https://github.com/FriendsOfShopware/FroshGMVViewer",
+            "en-GB": "https://github.com/FriendsOfShopware/FroshGMVViewer"
+        },
+        "supportLink": {
+            "de-DE": "https://github.com/FriendsOfShopware/FroshGMVViewer/issues",
+            "en-GB": "https://github.com/FriendsOfShopware/FroshGMVViewer/issues"
+        }
+    },
+    "require": {
+        "shopware/core": "~6.6.0 || ~6.7.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "symfony/runtime": true
+        }
+    }
+}

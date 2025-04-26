@@ -1,0 +1,44 @@
+.frosh-gmv-viewer-overview {
+    &__stats {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 32px;
+    }
+
+    &__stat-group {
+        flex: 1 1 50%;
+        display: flex;
+        margin-bottom: 24px;
+        min-width: 300px;
+    }
+
+    &__stat-item {
+        flex: 1;
+        padding: 16px;
+        background-color: #eaedf1;
+        border-radius: 4px;
+        margin-right: 16px;
+        text-align: center;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__stat-label {
+        font-size: 18px;
+        font-weight: 600;
+        color: #142432;
+    }
+
+    &__stat-value {
+        font-size: 24px;
+        font-weight: 600;
+        color: #142432;
+    }
+
+    &__stat-detail {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+}
