@@ -57,13 +57,19 @@ class GmvController extends AbstractController
             }
         }
 
-        // Berechne Jahreswerte (Vorjahr, aktuelles Jahr)
         $gmvYearly = [];
+        $monthlyDataByCurrency = [];
+
         foreach ($list as $entry) {
-            $year = substr($entry['date'], 0, 4);
             $currencyIsoCode = $entry['currency_iso_code'];
+
+            // `date` is in the format `YYYY-mm`
+            $date = $entry['date'];
+
+            $year = substr($date, 0, 4);
             $key = $year . '_' . $currencyIsoCode;
 
+            // Yearly data
             $gmvYearly[$key] ??= [
                 'date' => $year,
                 'turnover_total' => 0,
@@ -80,43 +86,23 @@ class GmvController extends AbstractController
             $gmvYearly[$key]['order_count'] += $entry['order_count'];
             $gmvYearly[$key]['converted_total'] += $entry['turnover_total'] / $entry['currency_factor'];
             $gmvYearly[$key]['converted_net'] += $entry['turnover_net'] / $entry['currency_factor'];
-        }
 
-        // Erzeuge Referenzliste der letzten 12 Monate (ab heute rückwärts)
-        $monthRange = [];
-        for ($i = 11; $i >= 0; $i--) {
-            $monthRange[] = date('Y-m', strtotime("-$i months"));
-        }
-
-        // Erfasse alle Währungen, die vorkommen
-        $currencies = [];
-        foreach ($list as $entry) {
-            $currencies[$entry['currency_iso_code']] = true;
-        }
-
-        $monthlyDataByCurrency = [];
-        foreach ($list as $entry) {
-            $month = $entry['date'];
-            if (!in_array($month, $monthRange)) {
-                continue; // Nur letzte 12 Monate berücksichtigen
-            }
-
-            $currency = $entry['currency_iso_code'];
-            $monthlyDataByCurrency[$currency][$month] ??= [
+            // Monthly data
+            $monthlyDataByCurrency[$currencyIsoCode][$date] ??= [
                 'turnover_total' => 0,
                 'turnover_net' => 0,
                 'order_count' => 0,
-                'currency_iso_code' => $currency,
+                'currency_iso_code' => $currencyIsoCode,
                 'currency_factor' => $entry['currency_factor'],
                 'converted_total' => 0,
                 'converted_net' => 0,
             ];
 
-            $monthlyDataByCurrency[$currency][$month]['turnover_total'] += $entry['turnover_total'];
-            $monthlyDataByCurrency[$currency][$month]['turnover_net'] += $entry['turnover_net'];
-            $monthlyDataByCurrency[$currency][$month]['order_count'] += $entry['order_count'];
-            $monthlyDataByCurrency[$currency][$month]['converted_total'] += $entry['turnover_total'] / $entry['currency_factor'];
-            $monthlyDataByCurrency[$currency][$month]['converted_net'] += $entry['turnover_net'] / $entry['currency_factor'];
+            $monthlyDataByCurrency[$currencyIsoCode][$date]['turnover_total'] += $entry['turnover_total'];
+            $monthlyDataByCurrency[$currencyIsoCode][$date]['turnover_net'] += $entry['turnover_net'];
+            $monthlyDataByCurrency[$currencyIsoCode][$date]['order_count'] += $entry['order_count'];
+            $monthlyDataByCurrency[$currencyIsoCode][$date]['converted_total'] += $entry['turnover_total'] / $entry['currency_factor'];
+            $monthlyDataByCurrency[$currencyIsoCode][$date]['converted_net'] += $entry['turnover_net'] / $entry['currency_factor'];
         }
 
         foreach ($monthlyDataByCurrency as &$currencyData) {
