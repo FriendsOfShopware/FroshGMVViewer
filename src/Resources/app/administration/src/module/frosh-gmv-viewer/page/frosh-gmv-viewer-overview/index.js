@@ -98,7 +98,6 @@ Component.register('frosh-gmv-viewer-overview', {
 
             const monthlyData = this.rawGmvData.month;
 
-            // Hilfsfunktion für eine einzelne Periode (Monat/Jahr)
             const computePeriod = (periodKey, isYear = false) => {
                 let total = 0;
                 const detail = [];
@@ -133,7 +132,6 @@ Component.register('frosh-gmv-viewer-overview', {
                 };
             };
 
-            // Daten zusammensetzen
             this.gmvData = {
                 defaultCurrencyIsoCode: this.rawGmvData.defaultCurrency,
                 thisMonth: computePeriod(thisMonthKey),

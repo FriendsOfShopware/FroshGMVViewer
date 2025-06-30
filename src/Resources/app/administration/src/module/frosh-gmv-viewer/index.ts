@@ -1,7 +1,6 @@
 import './page/frosh-gmv-viewer-overview';
 import './component/frosh-gmv-chart';
 
-// Shopware Module Registration
 Shopware.Module.register('frosh-gmv-viewer', {
     type: 'plugin',
     name: 'frosh-gmv-viewer.general.mainMenuItemGeneral',
