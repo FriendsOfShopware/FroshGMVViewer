@@ -9,8 +9,4 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class FroshGMVViewer extends Plugin
 {
-    public function build(ContainerBuilder $container): void
-    {
-        parent::build($container);
-    }
 }
