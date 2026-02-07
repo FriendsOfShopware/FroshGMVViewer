@@ -74,7 +74,6 @@ Component.register('frosh-gmv-chart', {
                             return '';
                         }
 
-
                         tooltipContent += `
                             <div class="apexcharts-tooltip-series-group frosh-gmv-chart-tooltip-group-summary">
                                 <div class="frosh-gmv-chart-tooltip-group-label">${w.config.tooltip.totalLable}:</div>
